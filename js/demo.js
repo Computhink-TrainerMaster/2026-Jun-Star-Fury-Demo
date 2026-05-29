@@ -142,7 +142,7 @@ function preload() {
 
     bulletImg = loadImage("assets/image/bullet.png");
 
-    enemyImg = loadImage("assets/image/obstacle1.png");
+    enemyImg = loadImage("assets/image/Obstacle1.png");
 
     shootSound = loadSound("assets/sounds/shooting_sound.mp3");
     enemyHitSound = loadSound("assets/sounds/blast.mp3");
