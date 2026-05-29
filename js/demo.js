@@ -132,6 +132,7 @@ let laserHitWidth = 45;
 
 let stars;
 let gameFontMedium, gameFontBlack;
+let justStarted = false;
 
 function preload() {
 
@@ -141,7 +142,7 @@ function preload() {
 
     bulletImg = loadImage("assets/image/bullet.png");
 
-    enemyImg = loadImage("assets/image/Obstacle1.png");
+    enemyImg = loadImage("assets/image/obstacle1.png");
 
     shootSound = loadSound("assets/sounds/shooting_sound.mp3");
     enemyHitSound = loadSound("assets/sounds/blast.mp3");
@@ -294,6 +295,7 @@ function draw() {
         if (kb.presses(" ")) {
             userStartAudio();
             gameState = "run";
+            justStarted = true;
 
             if (bgm && !bgm.isPlaying()) {
                 bgm.loop();
@@ -349,7 +351,8 @@ function draw() {
 
         spawnRate = floor(rowDistance / obsSpeed);
 
-        if ((frameCount - initialSpawnRate) % spawnRate == 0) {
+        if ((frameCount - initialSpawnRate) % spawnRate == 0 || justStarted == true) {
+            justStarted = false;
             columnCount = floor(random(4, 9));
             columnPadding = floor(random(5, 10));
             totalGapSpace = (columnPadding * 2) * columnCount;
@@ -434,6 +437,7 @@ function draw() {
         textSize(30);
         fill("white");
         let margin = 20;
+        allSprites.draw();
 
         textFont(gameFontBlack);
         textAlign(LEFT, TOP);
@@ -532,7 +536,7 @@ function draw() {
 
         if (kb.presses("r")) {
             gameState = "run";
-
+            justStarted = true;
             score = 0;
             lives = 3;
             level = 1;
