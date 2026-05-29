@@ -135,7 +135,7 @@ function preload() {
     bulletImg = loadImage("assets/image/bullet.png");
 
     // Task 3.1: Create Random Enemies
-    enemyImg = loadImage("assets/image/obstacle1.png");
+    enemyImg = loadImage("assets/image/Obstacle1.png");
 
     // Task 6.11:  Add Sound Effects
     shootSound = loadSound("assets/sounds/shooting_sound.mp3");
